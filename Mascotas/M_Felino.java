@@ -1,4 +1,5 @@
-package Macotass;
+package Mascotas;
+
 import javax.swing.JOptionPane;
 public class M_Felino extends Mascota {
     private String descripcion; 
