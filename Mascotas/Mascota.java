@@ -83,55 +83,42 @@ public class Mascota {
     public String getId_mascota() {
         return this.id_mascota;
     }
-
     public void setId_mascota(String id_mascota) {
         this.id_mascota = id_mascota;
     }
-
     public String getNombre() {
         return this.nombre;
     }
-
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
     public String getTipo() {
         return this.tipo;
     }
-
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
-
     public String getAlergias() {
         return this.alergias;
     }
-
     public void setAlergias(String alergias) {
         this.alergias = alergias;
     }
-
     public String getRaza() {
         return this.raza;
     }
-
     public void setRaza(String raza) {
         this.raza = raza;
     }
-
     public int getEdad() {
         return this.edad;
     }
-
     public void setEdad(int edad) {
         this.edad = edad;
     }
-
     public float getPeso() {
         return this.peso;
     }
-
     public void setPeso(float peso) {
         this.peso = peso;
     }

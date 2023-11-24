@@ -7,7 +7,7 @@ public class main {
 
     public static void main(String[] args) {
 
-        
+
 int opcion;
 do { opcion = Integer.parseInt(JOptionPane.showInputDialog(
                 "Menú principal\n\n" +
@@ -28,4 +28,5 @@ do { opcion = Integer.parseInt(JOptionPane.showInputDialog(
                     break; } } while (opcion != 4);
     }
 
+    
 }
