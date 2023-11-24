@@ -1,13 +1,9 @@
 package Mascotas;
-
-
-
 import javax.swing.JOptionPane;
 
 public class Mascota {
     private String id_mascota, nombre, tipo, alergias, raza;
-    private int edad;
-    private float peso;
+    private int edad;private float peso;
 
     public Mascota() {
         this.id_mascota = "";
@@ -140,4 +136,25 @@ public class Mascota {
         this.peso = peso;
     }
 
+public static void menu(){
+    int opcion;
+    Mascota mascota = new Mascota();
+    do { opcion = Integer.parseInt(JOptionPane.showInputDialog(
+            "Menú principal\n\n" +
+                "1. Insertar Datos\n" +
+                "2. Modificar Datos\n" +
+                "3. Imprime datos\n"+
+                "4. Salir"));
+        switch (opcion) {
+            case 1: mascota.insertarDatos();
+                break;
+            case 2:mascota.modificarDatos();
+                break;
+            case 3: mascota.imprimirDatos();
+                break;
+            case 4: JOptionPane.showMessageDialog(null, "SALIENDO...");
+                break;
+            default: System.out.println("Opción no válida.");
+                break; } } while (opcion != 4);
+        }
 }
