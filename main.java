@@ -1,4 +1,7 @@
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+
 import javax.swing.JOptionPane;
 
 import Empleado.Empleado;
@@ -21,12 +24,12 @@ do { opcion = Integer.parseInt(JOptionPane.showInputDialog(
                 case 2:Mascota.menu();
                     break;
                 case 3: 
+                
                     break;
-                case 4: JOptionPane.showMessageDialog(null, "SALIENDO...");
+                case 4: 
+                JOptionPane.showMessageDialog(null, "SALIENDO...");
                     break;
                 default: System.out.println("Opción no válida.");
                     break; } } while (opcion != 4);
     }
-
-    
 }

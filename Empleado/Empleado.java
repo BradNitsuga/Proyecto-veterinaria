@@ -1,46 +1,81 @@
 
 package Empleado;
+import java.util.ArrayList;
+import java.util.Scanner;
+
 import javax.swing.JOptionPane;
 
 public class Empleado {
-    private String nombre; private String curp; private String genero; private String NSS; String tipo_empleado;
-    private int edad; private int telefono; private double sueldo;
-       
+    
+    public String nombre; public String curp; public String genero; public String NSS;
+    public String edad; public String telefono; public String sueldo;
+    int opc,i;
+    int num=0;
+    int continuar;
+    public static Empleado trabajador[];
+
     // Default constructor
     public Empleado() {
         this.nombre = "";
         this.curp = "";
         this.genero = "";
         this.NSS = "";
-        this.edad = 0;
-        this.telefono = 0;
-        this.sueldo = 1200.00;
+        this.edad = "";
+        this.telefono = "";
+        this.sueldo = "";
     }
 
     // Parameterized constructor
-    public Empleado(String n, String c, String g, int e, int t, double s, String tipo_empleado) {
-        this.nombre = nombre;
-        this.curp = curp;
-        this.genero = genero;
-        this.NSS = NSS;
-        this.edad = edad;
-        this.telefono = telefono;
-        this.sueldo = 1200.00;
+    public Empleado(String n, String c, String g, String N, String e, String t, String s) {
+        this.nombre = n;
+        this.curp = c;
+        this.genero = g;
+        this.NSS = N;
+        this.edad = e;
+        this.telefono = t;
+        this.sueldo = s;
     }
 
     // Method to insert data
     public void insertarDatos() {
-        this.curp = JOptionPane.showInputDialog("Ingrese el Curp:");
-        this.nombre = JOptionPane.showInputDialog("Ingrese el nombre:");
-        this.genero = JOptionPane.showInputDialog("Ingrese su Genero; ");
-        this.NSS = JOptionPane.showInputDialog("Ingrese su NSS");
-        this.telefono = Integer.parseInt(JOptionPane.showInputDialog("Ingrese numero de telefono:"));
-        this.edad = Integer.parseInt(JOptionPane.showInputDialog("Ingrese su edad:"));
-        this.tipo_empleado = JOptionPane.showInputDialog("Tipo de empleado");
-    }
 
-    // Method to display data
+        Empleado trabajador[] = new Empleado[7];
+        int opc,i,num=0;
+        int continuar;
+    
+       do{
+        trabajador [num]= new Empleado(
+        (JOptionPane.showInputDialog("Ingrese el nombre:")),
+        (JOptionPane.showInputDialog("Ingrese el Curp:")),
+        (JOptionPane.showInputDialog("Ingrese su Genero: ")),
+        (JOptionPane.showInputDialog("Ingrese su NSS")),
+        (JOptionPane.showInputDialog("Ingrese su edad:")),
+        (JOptionPane.showInputDialog("Ingrese numero de telefono:")),
+        (JOptionPane.showInputDialog("Sueldo")));
+        num=num+1;
+        continuar= JOptionPane.showConfirmDialog(null,"¿Desea añadir otro Trabajador?","Recabando información",JOptionPane.YES_NO_OPTION);
+        }while(continuar==JOptionPane.YES_OPTION);
+
+        for (i=0;i<num;i++)
+            {
+            //Escribir Trabajadores
+            JOptionPane.showMessageDialog(null, "Empleado " + (i + 1) + ":" + trabajador[i]);
+            JOptionPane.showMessageDialog(null, "Pago total: \n "+ trabajador[i].calcularPago());
+
+        
+    }
+}
+
     public void imprimirDatos(){
+        int opc,i,num=0;
+        int continuar;
+
+        for (i=0;i<num;i++)
+            {
+            //Escribir Trabajadores
+            JOptionPane.showMessageDialog(null, trabajador[i]);
+            }
+/*
         JOptionPane.showMessageDialog(null, "Datos ingresados: \n" +
             "CURP: " + this.curp + "\n" +
             "Nombre: " + this.nombre + "\n" +
@@ -48,7 +83,9 @@ public class Empleado {
             "NSS: " + this.NSS + "\n" +
             "Telefono: " + this.telefono + "\n" +
             "Edad: " + this.edad + "\n" +
-            "Tipo de empleado: " + this.tipo_empleado + "\n");
+            "Tipo de empleado: " +   "\n");
+            */
+        
     }
 
     // Method to modify data
@@ -59,8 +96,7 @@ public class Empleado {
             "\n 2: Modificar NSS " +
             "\n 3: Cambiar Telefono" + 
             "\n 4: Modificar edad " + 
-            "\n 5: Modificar Curp " +
-            "\n 6: Modificar tipo de Empleado")
+            "\n 5: Modificar Curp ")
         );
 
         switch (opcion) {
@@ -71,16 +107,13 @@ public class Empleado {
                 NSS = JOptionPane.showInputDialog("Ingrese las nuevas NSS de la mascota:");
                 break;
             case 3:
-                 telefono = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el nuevo Telefono de la mascota:"));
+                 telefono = JOptionPane.showInputDialog("Ingrese el nuevo Telefono de la mascota:");
                 break;
             case 4:
-                edad = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la nueva edad de la mascota:"));
+                edad = JOptionPane.showInputDialog("Ingrese la nueva edad de la mascota:");
                 break;
             case 5:
                 curp = JOptionPane.showInputDialog("Ingrese la nueva Curp de la mascota:");
-                break;
-            case 6:
-                tipo_empleado = JOptionPane.showInputDialog("Ingrese la nueva Curp de la mascota:");
                 break;
             default:
                 // Cancel the modification
@@ -98,47 +131,59 @@ public class Empleado {
     public String getGenero(){
         return genero;
     }
-    private String getNSS() { 
+    public String getNSS() { 
         return NSS; 
     }
-    public int getEdad(){
+    public String getEdad(){
         return edad;
     }
-    public int getTelefono(){
+    public String getTelefono(){
         return telefono;
     }
-    public double getSueldo(){
+    public String getSueldo(){
         return sueldo;
     }
 
     // Calculate the payment
     public double calcularPago (){
-        return 0.0;
+        return 0.0 ;
     }
 
     // Convert the object to a string
     public String toString (){
-        return "Nombre:" + nombre + ", Número de seguro social: " + NSS; 
+        return "CURP: " + this.curp + "\n" +
+            "Nombre: " + this.nombre + "\n" +
+            "Tipo: " + this.genero + "\n" +
+            "NSS: " + this.NSS + "\n" +
+            "Telefono: " + this.telefono + "\n" +
+            "Edad: " + this.edad + "\n" +
+            "Tipo de empleado: " +  "\n";
     }
 
     // Main menu
     public static void menu(){
         int opcion;
-        Empleado empleado = new Empleado();
+        Empleado trabajador = new Empleado();
         do { 
             opcion = Integer.parseInt(JOptionPane.showInputDialog(
                 "Empleado\n\n" +
                     "1. Insertar Datos\n" +
                     "2. Modificar Datos\n" +
                     "3. Imprime datos\n"+
-                    "4. Regresar al menu principal")
-            );
+                    "4. Regresar al menu principal"));
+
             switch (opcion) {
-                case 1: empleado.insertarDatos();
+                case 1: trabajador.insertarDatos();
                     break;
-                case 2:empleado.modificarDatos();
+                case 2:trabajador.modificarDatos();
                     break;
-                case 3: empleado.imprimirDatos();
+                case 3: 
+                    int num=0;
+                    for (int i=0;i< num;i++)
+                    {
+                    //Escribir Trabajadores
+                    JOptionPane.showMessageDialog(null, Empleado.trabajador[i]);
+                }
                     break;
                 case 4: JOptionPane.showMessageDialog(null, "SALIENDO...");
                     break;
@@ -148,3 +193,4 @@ public class Empleado {
         } while (opcion != 4);
     }
 }
+    
