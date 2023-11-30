@@ -23,8 +23,7 @@ do { opcion = Integer.parseInt(JOptionPane.showInputDialog(
                     break;
                 case 2:Mascota.menu();
                     break;
-                case 3: 
-                
+                case 3:Producto.menu();
                     break;
                 case 4: 
                 JOptionPane.showMessageDialog(null, "SALIENDO...");
