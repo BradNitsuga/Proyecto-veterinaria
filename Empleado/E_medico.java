@@ -18,9 +18,14 @@ public class E_medico extends Empleado {
         this.especialidad="";
     }
 
-    public E_medico(String nombre, String curp, String genero, String NSS,
-    String edad, String telefono, String especialidad) {
+    public E_medico(String nombre, String curp, String genero, String NSS, String edad, String telefono, String especialidad) {
         super(nombre, curp, genero, NSS, edad,telefono);
+        this.nombre = nombre;
+        this.curp = curp;
+        this.genero = genero;
+        this.NSS = NSS;
+        this.edad = edad;
+        this.telefono = telefono;
         this.especialidad = especialidad;
     }
 
@@ -43,40 +48,29 @@ public class E_medico extends Empleado {
             {
             //Escribir Trabajadores
             JOptionPane.showMessageDialog(null, "Empleado " + (i + 1) + ":\n" + trabajador[i]);
-            JOptionPane.showMessageDialog(null, "Pago total por Quincena : \n " + " $1000 x 3 \n "+ trabajador[i].calcularPago());    
+            JOptionPane.showMessageDialog(null, "Pago total por Quincena : \n " + " $1000 x 3 \n \n "+ trabajador[i].calcularPago());    
     }
 }
 
 
 public static void menu(){
-    int opcion;
     E_medico trabajador = new E_medico();
-    do { 
-        opcion = Integer.parseInt(JOptionPane.showInputDialog(
-            "Empleado\n\n" +
-                "1. Insertar Datos\n" +
-                "2. Modificar Datos\n" +
-                "3. Imprime datos\n"+
-                "4. Regresar al menu principal"));
-
-        switch (opcion) {
-            case 1: trabajador.insertarDatos();
-                break;
-            case 2:trabajador.modificarDatos();
-                break;
-            case 3:trabajador.toString();
-                break;
-            case 4: JOptionPane.showMessageDialog(null, "Regresando a MENU EMPLEADO..");
-                break;
-            default: JOptionPane.showMessageDialog(null,"Opción no válida.");
-                break; 
-        } 
-    } while (opcion != 4);
+    trabajador.insertarDatos();
 }
 
 public int calcularPago (){
     int pre= 1000*3;
     return pre;
+}
+
+public String toString (){
+    return "Curp: " + this.curp + "\n" +
+        "Nombre: " + this.nombre + "\n" +
+        "Tipo: " + this.genero + "\n" +
+        "NSS: " + this.NSS + "\n" +
+        "Telefono: " + this.telefono + "\n" +
+        "Edad: " + this.edad + "\n" +
+        "Especialidad: " + this.especialidad + "";
 }
 
 public void modificarDatos() {
@@ -110,7 +104,6 @@ public void modificarDatos() {
             especialidad = JOptionPane.showInputDialog("Ingrese la nueva Especialidad");
             break;
         default:
-            // Cancel the modification
             JOptionPane.showMessageDialog(null, "Modificacion cancelada");
         }
     }

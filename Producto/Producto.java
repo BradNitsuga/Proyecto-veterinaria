@@ -4,7 +4,8 @@ public class Producto {
     private String nombre_producto;
     private Integer num_producto;
     private Double precio_producto;
-    private Integer cantidad;
+    public static Producto productos[];
+
 
     public Producto () {
         this.nombre_producto= "";
@@ -12,56 +13,58 @@ public class Producto {
         this.precio_producto= 0.0;
     }
     public Producto (String nombre, Integer numero, Double precio) {
-        nombre_producto = nombre;
-        num_producto = numero;
-        precio_producto = precio;
+        this.nombre_producto = nombre;
+        this.num_producto = numero;
+        this.precio_producto = precio;
     }
 
     public void registrar_producto(){
-        nombre_producto= JOptionPane.showInputDialog("Ingrese el nombre del producto");
-        num_producto= Integer.parseInt(JOptionPane.showInputDialog("Ingrese cuantos productos hay en existencia"));
-        num_producto = cantidad;
-
-    }
-
-    public void calcular_precio() {
-        cantidad = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad del producto"));  
+        Producto productos[]= new Producto[3];
+        int i,num=0;
+        int continuar;
+        do{
+            productos [num]= new Producto(
+            (JOptionPane.showInputDialog("Ingrese el nombre del producto")),(Integer.parseInt(JOptionPane.showInputDialog("Ingrese cuantos productos hay en existencia"))),
+            (Double.parseDouble(JOptionPane.showInputDialog("Ingrese su Precio: "))));
+            num=num+1;
+            continuar= JOptionPane.showConfirmDialog(null,"¿Desea añadir otro Producto?","Recabando información",JOptionPane.YES_NO_OPTION);
+            }
+            while(continuar==JOptionPane.YES_OPTION);
+            for (i=0;i<num;i++)
+                {
+                //Escribir Trabajadores
+                JOptionPane.showMessageDialog(null, "Producto " + (i + 1) + ":\n" + productos[i]);
+   
         }
-
-    public void imprime_producto(){
-        JOptionPane.showMessageDialog(null, "Cantidad: " + cantidad+ "Costo total: "+ cantidad*precio_producto +
-        "-----Resumen-----" + "\nProducto: " + nombre_producto + "\nNumero de producto: " + num_producto + "\nPrecio unitario: $"+ precio_producto);
     }
 
     public String toString(){
-        return "Cantidad: " + cantidad + "\n Costo total: "+ cantidad*precio_producto +
-        "\n -----Resumen-----\n"+ "\nProducto: " + nombre_producto + "\nNumero de producto: " + num_producto + "\nPrecio unitario: $"+ precio_producto;
-    
+        return
+        "-----Resumen-----\n"+ "\nProducto: " + nombre_producto + "\nNumero de producto: " + num_producto + "\nPrecio unitario: $"+ precio_producto;
     }
 
-    public static void menu(){
-    int opcion;
-    Producto p = new Producto();
-    do { 
-        opcion = Integer.parseInt(JOptionPane.showInputDialog(
-            "MENU PRODUCTO\n\n" +
-                "1. Insertar Datos\n" +
-                "2. Modificar Datos\n" +
-                "3. Imprime datos\n"+
-                "4. Regresar al menu principal"));
+     public static void menu(){
+        int opcion;
 
-        switch (opcion) {
-            case 1: p.registrar_producto();
-                break;
-            case 2: p.calcular_precio();
-                break;
-            case 3:p.toString();p.imprime_producto();
-                break;
-            case 4: JOptionPane.showMessageDialog(null, "Regresando a MENU EMPLEADO..");
-                break;
-            default: JOptionPane.showMessageDialog(null,"Opción no válida.");
-                break; 
-        } 
-    } while (opcion != 4);
-}
+        do { 
+            opcion = Integer.parseInt(JOptionPane.showInputDialog(
+                "Que Tipo de Producto Desea Registrar? \n\n" +
+                    "1. Alimento\n" +
+                    "2. Juguete \n" +
+                    "3. Regresar al menu principal"));
+
+            switch (opcion) {
+                case 1: P_Alimento.menu();
+                    break;
+                case 2:P_Juguete.menu();
+                    break;
+                case 3:JOptionPane.showMessageDialog(null, "Regresando a MENU PRINCIPAL..");
+                    break;
+                default: JOptionPane.showMessageDialog(null,"Opción no válida.");
+                    break; 
+            } 
+        } while (opcion != 3);
+    }
+
+    
 }

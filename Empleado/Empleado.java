@@ -51,49 +51,16 @@ public class Empleado {
 }
 
     public void imprimirDatos(){
-        int opc,i,num=0;
-        int continuar;
+        int i,num=0;
 
         for (i=0;i<num;i++)
             {
             //Escribir Trabajadores
-            JOptionPane.showMessageDialog(null, trabajador[i].toString());
+            JOptionPane.showMessageDialog(null, trabajador.toString());
             }
         
     }
 
-    // Method to modify data
-    public void modificarDatos() {
-        int opcion = Integer.parseInt(JOptionPane.showInputDialog(
-            " M E N U " + 
-            "\n 1: Modificar Curp " +
-            "\n 2: Modificar Nombre" + 
-            "\n 3: Modificar NSS " +
-            "\n 4: Cambiar Telefono" + 
-            "\n : Modificar Edad " )
-        );
-
-        switch (opcion) {
-            case 1:
-                curp = JOptionPane.showInputDialog("Ingrese la nueva Curp");
-                break;
-            case 2:
-                nombre = JOptionPane.showInputDialog("Ingrese el nuevo nombre");
-                break;
-            case 3:
-                NSS = JOptionPane.showInputDialog("Ingrese las nueva NSS");
-                break;
-            case 4:
-                 telefono = JOptionPane.showInputDialog("Ingrese el nuevo Telefono");
-                break;
-            case 5:
-                edad = JOptionPane.showInputDialog("Ingrese la nueva edad");
-                break;
-            default:
-                // Cancel the modification
-                JOptionPane.showMessageDialog(null, "Modificacion cancelada");
-        }
-    }
 
     // Getter methods
     public String getNombre(){
@@ -128,8 +95,7 @@ public class Empleado {
             "Tipo: " + this.genero + "\n" +
             "NSS: " + this.NSS + "\n" +
             "Telefono: " + this.telefono + "\n" +
-            "Edad: " + this.edad + "\n" +
-            "Tipo de empleado: " +  "\n";
+            "Edad: " + this.edad + "\n";
     }
 
     // Main menu
@@ -154,33 +120,7 @@ public class Empleado {
                 default: JOptionPane.showMessageDialog(null,"Opción no válida.");
                     break; 
             } 
-        } while (opcion != 4);
+        } while (opcion != 3);
     }
-     /*public static void menu(){
-        int opcion;
-        Empleado trabajador = new Empleado();
-        do { 
-            opcion = Integer.parseInt(JOptionPane.showInputDialog(
-                "Empleado\n\n" +
-                    "1. Insertar Datos\n" +
-                    "2. Modificar Datos\n" +
-                    "3. Imprime datos\n"+
-                    "4. Regresar al menu principal"));
-
-            switch (opcion) {
-                case 1: trabajador.insertarDatos();
-                    break;
-                case 2:trabajador.modificarDatos();
-                    break;
-                case 3:trabajador.toString();
-                    break;
-                case 4: JOptionPane.showMessageDialog(null, "Regresando a MENU PRINCIPAL..");
-                    break;
-                default: JOptionPane.showMessageDialog(null,"Opción no válida.");
-                    break; 
-            } 
-        } while (opcion != 4);
-    }*/
-
 }
     
