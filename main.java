@@ -18,6 +18,7 @@ do { opcion = Integer.parseInt(JOptionPane.showInputDialog(
                     "3. PRODUCTOS\n"+
                     "4. SERVICIO\n"+
                     "5. Salir"));
+
             switch (opcion) {
                 case 1: Empleado.menu();
                     break;
@@ -31,6 +32,6 @@ do { opcion = Integer.parseInt(JOptionPane.showInputDialog(
                 JOptionPane.showMessageDialog(null, "SALIENDO...");
                     break;
                 default: System.out.println("Opción no válida.");
-                    break; } } while (opcion != 4);
+                    break; } } while (opcion != 5);
     }
 }
