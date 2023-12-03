@@ -9,11 +9,11 @@ public class Sucursal {
 
 
     public Sucursal (String id_sucursal, String nombre, String direccion, long telefono, String horario){    
-        this.id_sucursal = id_sucursal;
-        this.nombre = nombre;
-        this.direccion = direccion;
-        this.horario = horario; 
-        this.telefono = telefono; 
+        this.id_sucursal = "202324CCO3";
+        this.nombre = "Veterinaria BUAPA";
+        this.direccion = "Jardines de San Programado";
+        this.horario = " 08:00 a 18:00 horas"; 
+        this.telefono = "+52 202-8382-1532"; 
     }
 
     public void imprimeSucursal() {

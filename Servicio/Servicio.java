@@ -26,22 +26,24 @@ public class Servicio {
                     "1. Estetico\n" +
                     "2. Guarderia \n" +
                     "3. Hospedaje \n" +
-                    "4. Regresar al menu principal"));
+                    "4. Medico \n"+
+                    "5. Regresar al menu principal"));
 
             switch (opcion) {
                 case 1:MainEstetico.menu();
                     break;
                 case 2: MainGuarderia.menu();
                     break;
-                case 3:
-                //E_Hospedaje.menu();
+                case 3:E_Hospedaje.insertarDatos();
                     break;
-                case 4:JOptionPane.showMessageDialog(null, "Regresando a MENU PRINCIPAL..");
+                case 4: MainMedico.menu();
+                    break;
+                case 5:JOptionPane.showMessageDialog(null, "Regresando a MENU PRINCIPAL..");
                 break;
                 default: JOptionPane.showMessageDialog(null,"Opción no válida.");
                     break; 
             } 
-        } while (opcion != 4);
+        } while (opcion != 5);
     }
     }
     
