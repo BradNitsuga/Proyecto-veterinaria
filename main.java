@@ -11,6 +11,10 @@ public class Main {
 public static void main(String[] args) {
 int opcion;
 Sucursal.Sucursal.imprimeSucursal();
+Cliente cliente = new Cliente();
+cliente.insertar_datos();
+cliente.imprimir_datos();
+
 do { opcion = Integer.parseInt(JOptionPane.showInputDialog(
                 "Menú principal\n\n" +
                     "1. EMPLEADOS\n" +
